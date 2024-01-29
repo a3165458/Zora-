@@ -5,7 +5,7 @@ set -e
 
 # 更新组件
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install curl build-essential git screen jq pkg-config libssl-dev libclang-dev ca-certificates gnupg lsb-release -y
+sudo apt install curl build-essential git screen jq pkg-config libssl-dev libclang-dev ca-certificates nano gnupg lsb-release -y
 sudo apt-get install docker-compose
 
 # 下载资源
