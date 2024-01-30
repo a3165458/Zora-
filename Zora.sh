@@ -18,10 +18,3 @@ cp .env.example .env
 # 修改env
 # Note: This will open the nano editor, the script will pause until you exit nano
 nano .env
-
-# 启动监控
-screen -S zora
-
-# 启动节点
-docker compose up --build
-
