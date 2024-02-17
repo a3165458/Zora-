@@ -61,4 +61,4 @@ read -p "请输入对应L1ETH的RPC网址: " OP_NODE_L1_ETH_RPC
 sed -i "s|OP_NODE_L1_ETH_RPC=.*|OP_NODE_L1_ETH_RPC=${OP_NODE_L1_ETH_RPC}|" .env
 
 # Docker组建
-docker compose up --build -d
+docker-compose up --build -d
