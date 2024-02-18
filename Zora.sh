@@ -29,6 +29,9 @@ else
     echo "Docker 已安装。"
 fi
 
+# 定义版本比较函数
+version_gt() { test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1"; }
+
 # 检查 Docker Compose 是否已安装并检查其版本
 if ! command -v docker-compose &> /dev/null
 then
@@ -38,7 +41,8 @@ else
     # 获取当前 Docker Compose 的版本
     CURRENT_VER=$(docker-compose --version | sed 's/docker-compose version \(.*\),.*/\1/')
     MIN_VER="1.29.2"
-    if [ "$(printf '%s\n' "$MIN_VER" "$CURRENT_VER" | sort -V | head -n1)" = "$MIN_VER" ]; then 
+    # 比较当前版本与最小要求版本
+    if version_gt "$MIN_VER" "$CURRENT_VER"; then
         echo "Docker Compose 的当前版本 ($CURRENT_VER) 低于最小要求版本 ($MIN_VER)，正在升级..."
         # 移除旧版本
         sudo rm $(which docker-compose)
