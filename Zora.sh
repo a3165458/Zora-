@@ -35,10 +35,10 @@ else
 fi
 
 # 检查 Docker Compose 是否已安装
-if ! command -v docker-compose &> /dev/null
+if ! command -v docker compose &> /dev/null
 then
     echo "未检测到 Docker Compose，正在安装..."
-    sudo apt install docker-compose -y
+    sudo apt install docker compose -y
 else
     echo "Docker Compose 已安装。"
 fi
