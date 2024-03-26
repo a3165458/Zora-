@@ -81,6 +81,13 @@ else
     echo "Docker Compose 已安装。"
 fi
 
+# 安装 Docker compose 最新版本
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+
 # 验证 Docker Engine 安装是否成功
 sudo docker run hello-world
 
